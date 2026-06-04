@@ -1,0 +1,91 @@
+{
+  "feature_names": [
+    "gender",
+    "age",
+    "hypertension",
+    "heart_disease",
+    "smoking_history",
+    "bmi",
+    "HbA1c_level",
+    "blood_glucose_level",
+    "age_group",
+    "bmi_category",
+    "glucose_risk",
+    "hba1c_risk",
+    "comorbidity_score",
+    "metabolic_risk_index"
+  ],
+  "categorical_mappings": {
+    "gender": {
+      "Female": 0,
+      "Male": 1,
+      "Other": 2
+    },
+    "smoking_history": {
+      "never": 0,
+      "No Info": 1,
+      "current": 2,
+      "former": 3,
+      "ever": 4,
+      "not current": 5
+    }
+  },
+  "feature_engineering": {
+    "age_group": {
+      "bins": [
+        0,
+        30,
+        50,
+        65,
+        120
+      ],
+      "labels": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "bmi_category": {
+      "bins": [
+        0,
+        18.5,
+        24.9,
+        29.9,
+        100
+      ],
+      "labels": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "glucose_risk": {
+      "bins": [
+        0,
+        139,
+        199,
+        500
+      ],
+      "labels": [
+        0,
+        1,
+        2
+      ]
+    },
+    "hba1c_risk": {
+      "bins": [
+        0,
+        5.6,
+        6.4,
+        20
+      ],
+      "labels": [
+        0,
+        1,
+        2
+      ]
+    }
+  }
+}

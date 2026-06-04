@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Custom Radio Button for Yes/No */
+  .radio-card {
+    @apply relative flex cursor-pointer rounded-xl border border-gray-200 bg-white/50 p-4 shadow-sm focus:outline-none transition-all duration-200 backdrop-blur-md;
+  }
+  
+  .radio-card:hover {
+    @apply border-brand-300 bg-brand-50/50 shadow-md;
+  }
+  
+  .radio-card input:checked + div {
+    @apply border-brand-500 bg-brand-50 ring-2 ring-brand-500 ring-offset-2;
+  }
+
+  .radio-card input:checked ~ .check-icon {
+    @apply opacity-100 scale-100;
+  }
+
+  /* Form Input Styles */
+  .input-field {
+    @apply mt-1 block w-full rounded-xl border-gray-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 sm:text-sm p-3 bg-white/70 backdrop-blur-sm transition-all duration-200;
+  }
+
+  /* Step Indicator */
+  .step-indicator {
+    @apply flex items-center justify-center w-8 h-8 rounded-full border-2 text-sm font-medium transition-all duration-300;
+  }
+  
+  .step-indicator.active {
+    @apply border-brand-500 bg-brand-500 text-white scale-110 shadow-lg shadow-brand-500/30;
+  }
+  
+  .step-indicator.completed {
+    @apply border-brand-500 bg-brand-50 text-brand-600;
+  }
+  
+  .step-indicator.inactive {
+    @apply border-gray-300 bg-white text-gray-500;
+  }
+
+  /* Custom Range Slider */
+  .range-slider {
+    @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
+  }
+  
+  .range-slider::-webkit-slider-thumb {
+    @apply appearance-none w-6 h-6 rounded-full bg-brand-500 shadow-md border-2 border-white cursor-pointer transition-transform duration-100 hover:scale-110;
+  }
+
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-xl border border-white/40 shadow-2xl rounded-3xl;
+  }
+}
+
+body {
+  @apply bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-50 min-h-screen text-slate-800 antialiased selection:bg-brand-200 selection:text-brand-900;
+}
+
+/* Hide scrollbar for cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
