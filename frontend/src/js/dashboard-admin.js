@@ -48,9 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Ambil data pasien dan stats secara paralel
+            const API_BASE_URL = import.meta.env.VITE_API_URL || '';
             const [dataRes, statsRes] = await Promise.all([
-                fetch('/api/admin/data', { headers }),
-                fetch('/api/admin/stats', { headers })
+                fetch(`${API_BASE_URL}/api/admin/data`, { headers }),
+                fetch(`${API_BASE_URL}/api/admin/stats`, { headers })
             ]);
 
             if (dataRes.status === 401 || dataRes.status === 403) {

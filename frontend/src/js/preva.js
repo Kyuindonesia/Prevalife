@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Note: Update the URL based on your production env or use relative path
-            const response = await fetch('https://prevalife.kyuhost.web.id/api/admin/login', {
+            const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+            const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

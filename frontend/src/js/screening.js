@@ -100,7 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btnSubmit.disabled = true;
 
     try {
-      const response = await fetch('/api/predict', {
+      const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${API_BASE_URL}/api/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
