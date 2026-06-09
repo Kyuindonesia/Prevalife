@@ -70,9 +70,11 @@ router.post('/predict', async (req, res) => {
         risk_level  = mlResponse.data.risk_level;   // "Rendah" | "Sedang" | "Tinggi"
     } catch (mlError) {
         console.error('Error communicating with FastAPI:', mlError.message);
-        // Fallback sederhana jika FastAPI tidak tersedia
-        prediction = 'TIDAK TERSEDIA';
-        risk_level = 'Tidak Tersedia';
+        // Jika FastAPI tidak tersedia, return response error ke frontend
+        return res.status(503).json({ 
+            success: false, 
+            message: 'Layanan AI prediksi diabetes sedang tidak tersedia. Silakan coba beberapa saat lagi.' 
+        });
     }
 
     // Simpan ke database
